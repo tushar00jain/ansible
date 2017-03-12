@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  station:
+    image: ansible/ansible:ubuntu1604
+    command: /bin/bash
+    container_name: station
+    env_file: .env
+    volumes: 
+      - ".:/ansible"
+    working_dir: /ansible

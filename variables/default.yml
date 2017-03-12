@@ -1,0 +1,9 @@
+aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+count: 1
+instance_type: t2.micro
+image: ami-ee7bca8d
+key_name: codesg
+region: ap-southeast-1
+security_group: all
+vpc_subnet_id: "{{ lookup('env', 'VPC_SUBNET_ID') }}"

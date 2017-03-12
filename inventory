@@ -1,0 +1,13 @@
+[namenode]
+52.221.208.183
+
+[datanode]
+
+[singapore:children]
+namenode
+datanode
+
+[singapore:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_ssh_private_key_file=keys/codesg.pem
