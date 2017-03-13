@@ -14,8 +14,9 @@ docker-compose run --name station station
 sudo apt-get install ansible
 pip install boto
 
-ansible-playbook ec2.yml
-ansible-playbook run.yml
+ansible-playbook playbooks/ec2.yml
+ansible-playbook -i inventory playbooks/run.yml -vvvv
+ansible-playbook -i inventory playbooks/hadoop.yml -vvvv
 ```
 
 Example `.env` file:

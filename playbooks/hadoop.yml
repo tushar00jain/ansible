@@ -1,0 +1,22 @@
+- name: Setup Hadoop
+  become: true
+  gather_facts: false
+  hosts: namenode
+
+  tasks:
+  - name: get hadoop files
+    get_url:
+      url: http://apache.mirrors.tds.net/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
+      dest: /tmp
+
+  - name: register hadoop tar file name
+    shell: ls /tmp/hadoop-*
+    register: tar_dir
+  - name: unarchive hadoop files
+    command: tar zxvf "{{ tar_dir.stdout }}" -C /usr/local
+
+  - name: register hadoop executable folder name
+    shell: ls -d /usr/local/hadoop-*
+    register: exec_dir
+  - name: move hadoop files
+    command: mv "{{ exec_dir.stdout }}" /usr/local/hadoop
